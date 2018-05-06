@@ -1,19 +1,21 @@
 const { Transform } = require('stream')
-// var Vinyl = require('vinyl');
+const Vinyl = require('vinyl')
 
 module.exports = function () {
   return new Transform({
     objectMode: true,
     transform (file, encoding, callback) {
-      file.contents = Buffer.from('123456')
       console.log(file.cwd, file.base, file.path)
-      // const file1 = Object.assign({}, file, {contents: Buffer.from('abc')});
-      // const file2 = Object.assign({}, file, {contents: Buffer.from('def')});
+      let contents = file.contents.toString(encoding)
+      contents = contents.replace(/\bconst\b/g, 'var')
+      file.contents = Buffer.from(contents)
       this.push(file)
-      file.path = '123.js'
-      file.contents = Buffer.from('abc')
-      this.push(file)
-      callback(null, file)
+      const sourceMap = new Vinyl({
+        base: file.base,
+        path: `${file.path}.map`,
+        contents: Buffer.from('this is the source map')
+      })
+      callback(null, sourceMap)
     },
   })
 }
