@@ -17,6 +17,19 @@
 * `externals`
 
 
+### html-css-images
+
+* url-loader & file-loader
+* mini-css-extract-plugin (successor of webpack3 + extract-text-webpack-plugin)
+
+```css
+.img {
+  background-image: url('/logo45.png');  /* 不会进行处理 */
+  background-image: url('logo123.png');  /* 会打包，在当前目录寻找 */
+}
+```
+
+
 
 
 
