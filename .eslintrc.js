@@ -1,7 +1,7 @@
 module.exports = {
   "root": true,
   "extends": "standard",
-  rules: {
+  "rules": {
     "no-multi-spaces": ["off"],
     "comma-dangle": ["off"],
   },
