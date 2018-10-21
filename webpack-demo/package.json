@@ -10,6 +10,7 @@
     "code-splitting": "webpack --config code-splitting/webpack.config.js",
     "html-css-images": "webpack --config html-css-images/webpack.config.js",
     "api-mock": "webpack-serve --config api-mock/webpack.config.js",
+    "conditional-import": "webpack --config conditional-import/webpack.config.js",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
