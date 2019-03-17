@@ -1,13 +1,13 @@
-const Router = require('koa-router')
+const { Router } = require('express')
 
-const mockRouter = new Router()
+const mockRouter = Router()
 
 mockRouter
-  .get('/api/hello', ctx => {
-    ctx.body = {data: {msg: 'Hello Mock API!'}}
+  .get('/api/hello', (req, res, next) => {
+    res.send({data: {msg: 'Hello Mock API!'}})
   })
-  .get('/api/author', ctx => {
-    ctx.body = {data: {author: 'Gavin 20180518'}}
+  .get('/api/author', (req, res, next) => {
+    res.send({data: {author: 'Gavin 20180518'}})
   })
 
 module.exports = mockRouter

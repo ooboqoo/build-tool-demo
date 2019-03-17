@@ -16,15 +16,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'API Mock Demo',
     }),
-  ]
-}
-
-module.exports.serve = {
-  content: [__dirname],
-  compiler: null,
-  add: (app, middleware, options) => {
-    middleware.webpack()
-    middleware.content()
-    app.use(mockRouter.routes())
-  },
+  ],
+  devServer: {
+    after: function (app, server) {
+      app.use(mockRouter)
+    }
+  }
 }

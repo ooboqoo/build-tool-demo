@@ -29,6 +29,12 @@
 }
 ```
 
+### conditional-import
+
+通过打包时传入的环境变量排除部分不需要的模块，如生产环境不打包 MOCK 数据
+
+* 通过 `resolve.alias` 实现，用起来可能不是很方面
+* 借助 _webpack-conditional-loader_ 实现，打包性能应该会受影响
 
 
 
