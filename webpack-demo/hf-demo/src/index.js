@@ -4,4 +4,6 @@ if (process.env.development) {
   var bar = require('./b').bar
 }
 
-console.log(foo, bar)
+foo()
+
+console.log(bar)

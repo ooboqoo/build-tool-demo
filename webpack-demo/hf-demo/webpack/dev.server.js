@@ -2,7 +2,7 @@ const express = require('express')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 
-const config = require('./webpack.base.config')
+const config = require('./base.config')
 
 const app = express()
 const compiler = webpack(config)
