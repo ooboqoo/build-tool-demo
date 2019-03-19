@@ -12,6 +12,7 @@
     "api-mock": "webpack-dev-server --config api-mock/webpack.config.js",
     "conditional-import": "cross-env production=true webpack --config conditional-import/webpack.config.js",
     "source-map": "webpack --config source-map/webpack.config.js",
+    "define-plugin": "webpack --config define-plugin/webpack.config.js",
     "hf:dev": "cross-env NODE_ENV=LOCAL node hf-demo/webpack/dev.server.js",
     "hf:build": "webpack --config hf-demo/webpack/prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
