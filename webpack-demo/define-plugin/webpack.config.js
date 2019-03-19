@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'none',
@@ -22,6 +23,9 @@ module.exports = {
       TWO: '1+1',
       'typeof window': JSON.stringify('object'),
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    new HtmlWebpackPlugin({
+      title: 'DefinePlugin',
+    }),
   ],
 }
