@@ -29,3 +29,8 @@ if (PRODUCTION) {
   const { log } = require('./module-d')
   log()
 }
+
+var a = process.env
+var b = process.env
+
+console.log({a, b, result: a === b})  // false

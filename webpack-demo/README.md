@@ -37,9 +37,18 @@
 * 借助 _webpack-conditional-loader_ 实现，打包性能应该会受影响
 
 
+## Plugins
 
+### DefinePlugin
 
+cross-env 只影响到 webpack.config.js 里代码的执行，不会影响到 webapp 代码，即 cross-env 里定义的环境变量并不会变成浏览器里的一个环境变量。
 
+DefinePlugin 里定义的环境变量，会影响到 webapp 里代码的执行，感觉是给浏览器里添加了环境变量(全局变量)，但其实 DefinePlugin 并没有添加全局变量，而只是在编译阶段进行了字符串替换，所以最终的效果是，待编译的代码能看到 DefinePlugin 里定义的变量，但运行时在 DevTool 里是看不到这个变量的。
 
+```js
+var a = process.env
+var b = process.env
+console.log({a, b, compare: a === b})  // false
+```
 
-
+注: webpack4 中设置 `mode` 为 'development' 或 'production' 时，会自动设置 `process.env.NODE_ENV` 变量。
